@@ -5,6 +5,21 @@ var dado = requisicao.then(function(resposta){
 })
 
 dado.then(function(marca){
-    console.log(marca[0].nome)
-    console.log(marca[0].codigo)
+    return fillDataList(marca)
 })
+
+
+
+function fillDataList(marcas){
+    var nomeMarcas = []
+
+    for(let i of marcas){
+        nomeMarcas.push(i.nome)
+    }
+    let dataList = document.querySelector('#listaMarcas')
+    nomeMarcas.forEach(function(data){
+        let option = document.createElement('option')
+        option.value = data
+        dataList.appendChild(option)
+    });
+    }
