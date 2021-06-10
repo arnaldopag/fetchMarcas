@@ -8,18 +8,13 @@ dado.then(function(marca){
     return fillDataList(marca)
 })
 
-
-
 function fillDataList(marcas){
-    var nomeMarcas = []
 
-    for(let i of marcas){
-        nomeMarcas.push(i.nome)
-    }
-    let dataList = document.querySelector('#listaMarcas')
-    nomeMarcas.forEach(function(data){
+let dataList = document.querySelector('#listaMarcas')
+
+     for(const i of marcas){
         let option = document.createElement('option')
-        option.value = data
+        option.value = i.nome;
         dataList.appendChild(option)
-    });
-    }
+     }  
+ }
